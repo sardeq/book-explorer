@@ -1,11 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './components/Pages/Home';
+import Books from './components/Pages/Books';
+import BookDetails from './components/Pages/BookDetails';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <main style={{ minHeight: '85vh', padding: '20px' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/books/:id" element={<BookDetails />} />
+        </Routes>
+      </main>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

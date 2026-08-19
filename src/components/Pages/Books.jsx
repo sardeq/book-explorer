@@ -8,7 +8,6 @@ const Books = () => {
     useEffect(() => {
         axios.get('https://openlibrary.org/search.json?q=programming')
             .then(response => setBooks(response.data.docs))
-            .catch(error => console.error(error));
     }, []);
 
     return (
